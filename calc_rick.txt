@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include "soma.h"
+
+int main() {
+    char nome[50];
+    int num;
+
+    // Solicitar o nome do usuário uma vez e verificar se é válido
+    printf("\nInsira seu nome: \n");
+    scanf("%s", nome);
+    while (!(nome[0] >= 'A' && nome[0] <= 'Z')) {
+        printf("Por favor, insira um nome que comece com uma letra maiúscula: \n");
+        scanf("%s", nome);
+    }
+
+    do {
+        printf("\nO que voce gostaria de ver hoje? \n");
+        printf("Clique em qualquer numero de 1 a 6: \n");
+        printf("\n1- Soma \n2- Subtração \n3- Divisão \n4- Fatorial \n0- Encerramento\n");
+
+        scanf("%d", &num);
+
+        switch (num) {
+            case 1:
+                printf("Executando a Soma: \n");
+                soma();
+                break;
+
+            case 2:
+                printf("Executando a Subtração: \n");
+                sub();
+                break;
+
+            case 3:
+                printf("Executando a Divisão: \n");
+                divi();
+                break;
+
+            case 4:
+                printf("Executando o Fatorial: \n");
+                fat();
+                break;
+
+            case 0:
+                printf("Saindo...\n");
+                break;
+
+            default:
+                printf("Digite algo válido.\n");
+        }
+    } while (num != 0);
+
+    return 0;
+}
