@@ -5,7 +5,7 @@ int main() {
     char nome[50];
     int num;
 
-    // Solicitar o nome do usuário uma vez e verificar se é válido
+
     printf("\nInsira seu nome: \n");
     scanf("%s", nome);
     while (!(nome[0] >= 'A' && nome[0] <= 'Z')) {
@@ -16,7 +16,7 @@ int main() {
     do {
         printf("\nO que voce gostaria de ver hoje? \n");
         printf("Clique em qualquer numero de 1 a 6: \n");
-        printf("\n1- Soma \n2- Subtração \n3- Divisão \n4- Fatorial \n0- Encerramento\n");
+        printf("\n1- Soma \n2- Subtração \n3- Divisão \n4- Fatorial \n5- Fibonacci \n0- Encerramento\n");
 
         scanf("%d", &num);
 
@@ -39,6 +39,16 @@ int main() {
             case 4:
                 printf("Executando o Fatorial: \n");
                 fat();
+                break;
+
+            case 5:
+                printf("Executando a Fibbnacci: \n");
+                fibo();
+                break;
+                
+            case 6:
+                printf("Executando o sortei de ateh 21: \n");
+                sorteio();
                 break;
 
             case 0:
