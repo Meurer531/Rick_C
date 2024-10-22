@@ -12,7 +12,7 @@ void soma() {
     printf("Digite o segundo numero: \n");
     scanf("%d", &num2);
     resultado = num1 + num2;
-    printf("O resultado da soma é: %d\n", resultado);
+    printf("O resultado da soma eh: %d\n", resultado);
 }
 
 void sub() {
@@ -22,7 +22,7 @@ void sub() {
     printf("Digite o segundo numero: \n");
     scanf("%d", &num2);
     resultado = num1 - num2;
-    printf("O resultado da subtração é: %d\n", resultado);
+    printf("O resultado da subtração eh: %d\n", resultado);
 }
 
 void divi() {
@@ -33,9 +33,9 @@ void divi() {
     scanf("%d", &num2);
     if (num2 != 0) {
         float resultado = (float)num1 / num2;
-        printf("O resultado da divisão é: %.2f\n", resultado);
+        printf("O resultado da divisão eh: %.2f\n", resultado);
     } else {
-        printf("Divisão por zero não é permitida.\n");
+        printf("Divisão por zero não eh permitida.\n");
     }
 }
 
@@ -51,7 +51,29 @@ void fat() {
     for (int i = 1; i <= num1; i++) {
         resultado *= i;
     }
-    printf("O fatorial de %d é: %lld\n", num1, resultado);
+    printf("O fatorial de %d eh: %lld\n", num1, resultado);
 }
+
+void fibo()
+{
+     int a, atual= 1, anterior = 0, prox;
+    do{
+        printf("Insira qtd desejada");
+        scanf("%d",&a);
+
+    }while ( !(a >= 2));
+
+    printf("\n0 1");
+
+    for ( int i = 3; i <= a; i++) //atual, anterior, prox
+    {
+        prox = atual + anterior;
+        printf(" %d",prox);
+        anterior = atual;
+        atual = prox;
+    }
+}
+
+
 
 #endif
