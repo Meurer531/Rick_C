@@ -1,0 +1,114 @@
+<?php
+$host = "localhost"; 
+$dbname = "usuarios";
+$username = "Maria Oliveira";
+$password = "1234";
+
+try {
+    // Criar a conexão com PDO
+    $conn = new PDO("pgsql:host=$host;dbname=$dbname", $username, $password);
+    // Definir o modo de erro do PDO
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Exemplo de uma consulta
+    $stmt = $conn->query("SELECT * FROM usuarios");
+
+    // Verificar se a consulta retornou resultados
+    if ($stmt->rowCount() > 0) {
+        // Buscar todos os resultados
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo "Nome: " . htmlspecialchars($row["Nome"]) . " - Email: " . htmlspecialchars($row["email"]) . "<br>";
+        }
+    } else {
+        echo "Nenhum resultado encontrado.";
+    }
+} catch (PDOException $e) {
+    echo "Conexão falhou: " . $e->getMessage();
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="agenda.css">
+    <title>Login</title>
+    <script>
+        function validarFormulario(event) {
+
+            event.preventDefault();
+
+
+            const nome = document.querySelector('input[name="nome"]').value;
+            const senha = document.querySelector('input[name="senha"]').value;
+
+
+            if (!nome && !senha) {
+                alert("Preencha todos os campos.");
+            } else if (!nome || !senha) {
+                alert("Preencha todos os campos.");
+            } else {
+                alert("Login feito com sucesso!");
+
+                document.querySelector('form').submit();
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <form method="post" action="agenda.php" onsubmit="validarFormulario(event)">
+        <div class="central">
+            <table>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;" colspan="2">
+                        <img src="rt.png" alt="" width="20%">
+                    </td>
+                </tr>
+                <tr class="login">
+                    <td><label for="">Login:</label></td>
+                    <td><input name="nome" class="iimg" maxlength="15" type="text"></td>
+                </tr>
+
+                <tr class="login">
+                    <td><label for="">Password:</label></td>
+                    <td><input name="senha" class="iimgg" type="password"></td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center; margin-top: 30px" colspan="2">
+                        <button class="b" name="Confirmar" type="submit">Confirmar</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="text-align: center;" colspan="2">
+                        <a href="cadastrar.php"><button class="b" name="Cadastrar" type="button">Cadastrar</button></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+            </table>
+            <div style="clear:both;">&nbsp;</div>
+        </div>
+    </form>
+
+    <?php
+    extract($_POST);
+
+    if (isset($_POST["Confirmar"])) {
+        $a = $_POST["nome"];
+        echo $a;
+    }
+    ?>
+</body>
+
+</html>
