@@ -16,7 +16,7 @@ int main() {
     do {
         printf("\nO que voce gostaria de ver hoje? \n");
         printf("Clique em qualquer numero de 1 a 6: \n");
-        printf("\n1- Soma \n2- Subtração \n3- Divisão \n4- Fatorial \n5- Fibonacci \n0- Encerramento\n");
+        printf("\n1- Soma \n2- Subtração \n3- Divisão \n4- Fatorial \n5- Fibonacci \n6- Sorteio \n0- Encerramento\n");
 
         scanf("%d", &num);
 
@@ -27,12 +27,12 @@ int main() {
                 break;
 
             case 2:
-                printf("Executando a Subtração: \n");
+                printf("Executando a Subtracao: \n");
                 sub();
                 break;
 
             case 3:
-                printf("Executando a Divisão: \n");
+                printf("Executando a Divisao: \n");
                 divi();
                 break;
 
@@ -45,7 +45,7 @@ int main() {
                 printf("Executando a Fibbnacci: \n");
                 fibo();
                 break;
-                
+
             case 6:
                 printf("Executando o sortei de ateh 21: \n");
                 sorteio();
@@ -56,9 +56,11 @@ int main() {
                 break;
 
             default:
-                printf("Digite algo válido.\n");
+                printf("Digite algo valido.\n");
         }
     } while (num != 0);
 
+        sorteios
+    
     return 0;
 }
